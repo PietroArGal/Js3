@@ -1,0 +1,49 @@
+<html>
+<head>
+    <style>
+        body{
+            background-color: #161616;
+            color: wheat;
+        }
+    </style>
+</head>
+<body>
+    <body>
+        <div id="lista-precios"></div>
+      </body>
+      
+<script>
+const listaPrecios = document.getElementById('lista-precios');
+
+const datos = {
+  "frutas": [
+    {"nombre": "manzana", "precio": 1.99},
+    {"nombre": "naranja", "precio": 0.99},
+    {"nombre": "plátano", "precio": 1.79}
+  ],
+  "verduras": [
+    {"nombre": "lechuga", "precio": 1.49},
+    {"nombre": "tomate", "precio": 0.89},
+    {"nombre": "cebolla", "precio": 0.69}
+  ]
+};
+
+let ul = '<ul>';
+
+for (const categoria in datos) {
+  ul += '<li><h3>' + categoria + '</h3><ul>';
+
+  for (const producto of datos[categoria]) {
+    ul += '<li>' + producto.nombre + ': $' + producto.precio.toFixed(2) + '</li>';
+  }
+
+  ul += '</ul></li>';
+}
+
+ul += '</ul>';
+
+listaPrecios.innerHTML = ul;
+
+</script>
+</body>
+</html>
